@@ -19,7 +19,7 @@ class system:
     
     def title(name):
         if os.name == "nt":
-            os.system("title " + system.name)
+            os.system("title " + name)
             
         else:
             0
@@ -79,6 +79,25 @@ class r:
         ink.forward(int(number))
         ink.left(90)
         
+class icon:
+    def file():
+        r.right(24)
+        for i in range(8):
+            r.down(1)
+            r.right(1)
+        r.down(24)
+        r.left(32)
+        r.up(32)
+        
+        ink.up()
+        r.right(24)
+        ink.down()
+        r.down(8)
+        r.right(8)
+        ink.up()
+        r.down(24)
+        r.left(32)
+        
 class gui:
     def menu(text):
         r.right(640)
@@ -124,6 +143,8 @@ class gui:
         r.down(20)
         ink.down()
         
+    #def icon
+        
 while True:
     # ИНТЕРФЕЙС
     
@@ -148,11 +169,13 @@ while True:
     
     gui.text("Примечание: для ввода значений используйте открывшуюся консоль.")
     
+    system.title("Сделайте выбор!")
     system.font = input("1. введите шрифт системы, который хотите использовать (рекомендуем: Manrope): ")
     system.fontsize = int(input("2. введите размер шрифта системы (рекомендуем: 8): "))
     system.speed = int(input("3. введите скорость отрисовки интерфейса системы (самое быстрое значение: 0): "))
     
     system.clear()
+    system.title("Вернитесь в " + system.name)
     print("Теперь вы можете вернуться в интерфейс " + system.name)
     
     ink.clear()
@@ -161,6 +184,8 @@ while True:
     
     gui.menu("Предупреждение: не закрывайте консоль!")
     r.indent(20)
+    
+    icon.file()
         
     turtle.exitonclick()
     
