@@ -111,7 +111,7 @@ class icon:
         r.up(2)
         r.right(9)
         r.down(2)
-        r.right(11)
+        r.right(12)
         ink.up()
         r.down(2)
         r.left(3)
@@ -119,7 +119,7 @@ class icon:
         for i in range(4):
             r.down(6)
             r.left(1)
-        r.left(19)
+        r.left(20)
         for i in range(4):
             r.up(6)
             r.left(1)
