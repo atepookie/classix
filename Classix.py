@@ -36,7 +36,7 @@ class r:
         turtle.title(system.name)
         turtle.setup(660, 500)
         ink.speed(system.speed)
-        #ink.ht()
+        ink.ht()
         
     def stdpos():
         ink.up()
@@ -188,6 +188,11 @@ class gui:
         r.right(160)
         ink.write(str(title), align="center", font=(system.font , system.fontsize, "bold"))
         r.right(160)
+        r.up(20)
+        r.left(320)
+        
+        ink.up()
+        r.down(20)
     
 r.setstd()
 r.stdpos()
