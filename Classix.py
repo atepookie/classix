@@ -36,7 +36,7 @@ class r:
         turtle.title(system.name)
         turtle.setup(660, 500)
         ink.speed(system.speed)
-        ink.ht()
+        #ink.ht()
         
     def stdpos():
         ink.up()
@@ -174,6 +174,20 @@ class gui:
         ink.up()
         r.down(20)
         ink.down()
+        
+    def window(title):
+        ink.up()
+        ink.setpos(-160, 120)
+        ink.down()
+        ink.setpos(-160, -120)
+        ink.setpos(160, -120)
+        ink.setpos(160, 120)
+        ink.setpos(-160, 120)
+        
+        r.down(20)
+        r.right(160)
+        ink.write(str(title), align="center", font=(system.font , system.fontsize, "bold"))
+        r.right(160)
     
 r.setstd()
 r.stdpos()
@@ -218,6 +232,8 @@ while True:
     
     icon.trash("корзина")
     r.enter(20)
+    
+    gui.window(123)
         
     turtle.exitonclick()
     
