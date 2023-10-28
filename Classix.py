@@ -80,7 +80,8 @@ class r:
         ink.left(90)
         
 class icon:
-    def file():
+    def file(text):
+        ink.down()
         r.right(24)
         for i in range(8):
             r.down(1)
@@ -88,7 +89,6 @@ class icon:
         r.down(24)
         r.left(32)
         r.up(32)
-        
         ink.up()
         r.right(24)
         ink.down()
@@ -97,6 +97,38 @@ class icon:
         ink.up()
         r.down(24)
         r.left(32)
+        ink.up()
+        
+        r.down(10)
+        r.down(system.fontsize * 2)
+        ink.write(str(text), align="left", font=(system.font , system.fontsize, "bold"))
+        
+    def trash(text):
+        ink.up()
+        r.down(7)
+        ink.down()
+        r.right(11)
+        r.up(2)
+        r.right(9)
+        r.down(2)
+        r.right(11)
+        ink.up()
+        r.down(2)
+        r.left(3)
+        ink.down()
+        for i in range(4):
+            r.down(6)
+            r.left(1)
+        r.left(19)
+        for i in range(4):
+            r.up(6)
+            r.left(1)
+        ink.up()
+        r.down(24)
+        
+        r.down(10)
+        r.down(system.fontsize * 2)
+        ink.write(str(text), align="left", font=(system.font , system.fontsize, "bold"))
         
 class gui:
     def menu(text):
@@ -143,8 +175,6 @@ class gui:
         r.down(20)
         ink.down()
         
-    #def icon
-        
 while True:
     # ИНТЕРФЕЙС
     
@@ -185,7 +215,11 @@ while True:
     gui.menu("Предупреждение: не закрывайте консоль!")
     r.indent(20)
     
-    icon.file()
+    icon.file("отчёт.txt")
+    r.enter(20)
+    
+    icon.trash("корзина")
+    r.enter(20)
         
     turtle.exitonclick()
     
