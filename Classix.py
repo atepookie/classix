@@ -131,24 +131,30 @@ class icon:
         ink.write(str(text), align="left", font=(system.font , system.fontsize, "bold"))
         
 class gui:
-    def menu(text):
+    def topbar(text):
+        r.stdpos()
+        ink.begin_fill()
         r.right(640)
         r.down(20)
-        ink.write(system.time + "    ", align="right", font=(system.font , int(system.fontsize)))
-        r.left(320)
+        r.left(20)
+        ink.write(system.time, align="right", font=(system.font , int(system.fontsize)))
+        r.left(300)
         ink.write(text, align="center", font=(system.font , int(system.fontsize)))
-        r.left(320)
-        ink.write("    " + system.name, align="left", font=(system.font , int(system.fontsize), "bold"))
+        r.left(300)
+        ink.write(system.name, align="left", font=(system.font , int(system.fontsize), "bold"))
+        r.left(20)
         r.up(20)
-        ink.down()
+        ink.color("white")
+        ink.end_fill()
+        ink.color("black")
+        ink.up()
         r.down(20)
         ink.down()
     
     def title(text):
-        fontsize = 14
         ink.up()
-        r.down(fontsize * 2)
-        ink.write(str(text), align="left", font=(system.font , fontsize, "bold"))
+        r.down(system.fontsize * 1.5 * 2)
+        ink.write(str(text), align="left", font=(system.font , int(system.fontsize * 1.5), "bold"))
         
     def text(text):
         ink.up()
@@ -179,25 +185,45 @@ class gui:
         ink.up()
         ink.setpos(-160, 120)
         ink.down()
+        ink.begin_fill()
         ink.setpos(-160, -120)
         ink.setpos(160, -120)
         ink.setpos(160, 120)
         ink.setpos(-160, 120)
+        ink.color("white")
+        ink.end_fill()
+        ink.color("black")
         
+        ink.begin_fill()
         r.down(20)
         r.right(160)
+        ink.color("white")
         ink.write(str(title), align="center", font=(system.font , system.fontsize, "bold"))
+        ink.color("black")
         r.right(160)
         r.up(20)
         r.left(320)
+        ink.end_fill()
         
         ink.up()
         r.down(20)
+        
+    def menu(text):
+        ink.down()
+        r.right(320)
+        r.down(20)
+        r.left(310)
+        ink.write(text, align="left", font=(system.font , int(system.fontsize)))
+        r.left(10)
+        r.up(20)
+        ink.up()
+        r.down(20)
+        ink.down()
     
 r.setstd()
 r.stdpos()
 
-gui.menu("Предупреждение: не закрывайте консоль!")
+gui.topbar("Предупреждение: не закрывайте консоль!")
 r.indent(20)
 
 gui.title("Добро пожаловать в " + system.name + "!")
@@ -213,7 +239,7 @@ gui.bold("2. введите размер шрифта системы (реком
 gui.bold("3. введите скорость отрисовки интерфейса системы (самое быстрое значение: 0)")
 r.enter(20)
 
-gui.text("Примечание: для ввода значений используйте открывшуюся консоль.")
+gui.button("Примечание: для ввода значений используйте открывшуюся консоль.")
 
 system.title("Сделайте выбор!")
 system.font = input("1. введите шрифт системы, который хотите использовать (рекомендуем: Manrope): ")
@@ -229,16 +255,45 @@ while True:
     r.setstd()
     r.stdpos()
     
-    gui.menu("Предупреждение: не закрывайте консоль!")
+    gui.topbar("Workspace")
     r.indent(20)
     
-    icon.file("отчёт.txt")
+    gui.button("введите название файла в консоль, чтобы его открыть")
+    r.enter(20)
+    
+    icon.file("help.txt")
     r.enter(20)
     
     icon.trash("корзина")
     r.enter(20)
     
-    gui.window(123)
-        
-    turtle.exitonclick()
+    system.title("Сделайте выбор!")
+    console = input("введите название файла: ")
     
+    system.clear()
+    gui.topbar(console)
+    
+    if console == "help.txt":
+        system.title("Вернитесь в " + system.name)
+        gui.window(console)
+        gui.menu("Количество слов: 8")
+        r.indent(20)
+        
+        gui.title("Добро пожаловать!")
+        r.enter(10)
+        
+        gui.text("Спасибо, за то что используете Classix!")
+        r.enter(10)
+        
+        gui.text("Скоро здесь появятся подсказки.")
+        gui.text("Свои идеи пишите на t.me/skibidiwc")
+        
+    elif console == "корзина":
+        system.title("Вернитесь в " + system.name)
+        gui.window(console)
+        gui.menu("Количество объектов в корзине: 0")
+        r.indent(20)
+        
+        gui.text("В корзине ничего нет.")
+        
+    input()
