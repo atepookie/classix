@@ -8,11 +8,13 @@ import os
 
 import time
 
+import sys
+
 class system:
     time = datetime.datetime.now().strftime("%H:%M")
     name = "Classix"
     version = "1.0"
-    author = "Kotov Yaroslaw"
+    author = "Ярослав Котов"
     font = "Manrope"
     fontsize = 8
     speed = 0 # ОСТАВЬТЕ 0 ДЛЯ МАКСИМАЛЬНОЙ СКОРОСТИ
@@ -212,9 +214,9 @@ class gui:
         ink.down()
         r.right(320)
         r.down(20)
-        r.left(310)
+        r.left(300)
         ink.write(text, align="left", font=(system.font , int(system.fontsize)))
-        r.left(10)
+        r.left(20)
         r.up(20)
         ink.up()
         r.down(20)
@@ -255,13 +257,13 @@ while True:
     r.setstd()
     r.stdpos()
     
-    gui.topbar("Workspace")
+    gui.topbar("введите название файла в консоль, чтобы его открыть")
     r.indent(20)
     
-    gui.button("введите название файла в консоль, чтобы его открыть")
+    icon.file("справка")
     r.enter(20)
     
-    icon.file("help.txt")
+    icon.file("выключить")
     r.enter(20)
     
     icon.trash("корзина")
@@ -273,20 +275,25 @@ while True:
     system.clear()
     gui.topbar(console)
     
-    if console == "help.txt":
+    if console == "справка":
         system.title("Вернитесь в " + system.name)
         gui.window(console)
-        gui.menu("Количество слов: 8")
+        gui.menu("ClassiX info")
         r.indent(20)
         
-        gui.title("Добро пожаловать!")
+        gui.bold("Спасибо, за то что используете Classix!")
         r.enter(10)
         
-        gui.text("Спасибо, за то что используете Classix!")
+        gui.text("текущее время: " + system.time)
+        gui.text("имя системы: " + system.name)
+        gui.text("версия системы: " + system.version)
+        gui.text("автор: " + system.author)
+        gui.text("шрифт по умолчанию: " + system.font)
+        gui.text("размер шрифта: " + str(system.fontsize))
+        gui.text("скорость отрисовки: " + str(system.speed))
         r.enter(10)
         
-        gui.text("Скоро здесь появятся подсказки.")
-        gui.text("Свои идеи пишите на t.me/skibidiwc")
+        gui.bold("t.me/skibidiwc")
         
     elif console == "корзина":
         system.title("Вернитесь в " + system.name)
@@ -296,4 +303,20 @@ while True:
         
         gui.text("В корзине ничего нет.")
         
-    input()
+    elif console == "выключить":
+        sys.exit()
+        
+    else:
+        system.title("Вернитесь в " + system.name)
+        gui.window(console)
+        r.indent(20)
+        
+        gui.title("Ошибка")
+        r.enter(10)
+        
+        gui.text("Введённый текст не является командой.")
+        r.enter(20)
+        
+        gui.button("чтобы закрыть окно, нажмите ENTER")
+        
+    input("Приложение завершило свою работу. Нажмите Enter для продолжения\n")
