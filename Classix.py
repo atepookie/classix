@@ -13,7 +13,7 @@ import sys
 class system:
     time = datetime.datetime.now().strftime("%H:%M")
     name = "Classix"
-    version = "1.0"
+    version = "2.0"
     author = "Ярослав Котов"
     font = "Manrope"
     fontsize = 8
@@ -34,8 +34,18 @@ class system:
             os.system("clear")
     
 class r:
-    def setstd():
+    def togui():
+        system.title("Вернитесь в " + system.name)
         turtle.title(system.name)
+        
+        
+    def tocli():
+        system.title("Сделайте выбор!")
+        turtle.title("Окно консоли ожидает...")
+        
+        
+    def setstd():
+        r.togui()
         turtle.setup(660, 500)
         ink.speed(system.speed)
         ink.ht()
@@ -49,37 +59,28 @@ class r:
         ink.setpos(320, 240)
         ink.setpos(-320, 240)
         
-    def left(number):
-        ink.left(180)
-        ink.forward(int(number))
-        ink.left(180)
+    def left(number):        
+        ink.setpos(ink.xcor() - number, ink.ycor())
         
     def right(number):
-        ink.forward(int(number))
+        ink.setpos(ink.xcor() + number, ink.ycor())
         
     def up(number):
-        ink.left(90)
-        ink.forward(int(number))
-        ink.right(90)
+        ink.setpos(ink.xcor(), ink.ycor() + number)
         
     def down(number):
-        ink.right(90)
-        ink.forward(int(number))
-        ink.left(90)
+        ink.setpos(ink.xcor(), ink.ycor() - number)
         
     def indent(number):
         ink.up()
-        ink.forward(int(number))
-        ink.right(90)
-        ink.forward(int(number))
-        ink.left(90)
+        ink.setpos(ink.xcor() + number, ink.ycor())
+        ink.setpos(ink.xcor(), ink.ycor() - number)
         ink.down()
         
     def enter(number):
         ink.up()
-        ink.right(90)
-        ink.forward(int(number))
-        ink.left(90)
+        ink.setpos(ink.xcor(), ink.ycor() - number)
+        ink.down()
         
 class icon:
     def file(text):
@@ -98,12 +99,12 @@ class icon:
         r.right(8)
         ink.up()
         r.down(24)
-        r.left(32)
+        r.left(16)
         ink.up()
-        
         r.down(10)
         r.down(system.fontsize * 2)
-        ink.write(str(text), align="left", font=(system.font , system.fontsize, "bold"))
+        ink.write(str(text), align="center", font=(system.font , system.fontsize, "bold"))
+        r.left(16)
         
     def trash(text):
         ink.up()
@@ -126,29 +127,37 @@ class icon:
             r.up(6)
             r.left(1)
         ink.up()
+        r.left(1)
         r.down(24)
+        r.right(16)
         
         r.down(10)
         r.down(system.fontsize * 2)
-        ink.write(str(text), align="left", font=(system.font , system.fontsize, "bold"))
+        ink.write(str(text), align="center", font=(system.font , system.fontsize, "bold"))
+        r.left(16)
         
 class gui:
     def topbar(text):
         r.stdpos()
         ink.begin_fill()
+        ink.color("black")
         r.right(640)
         r.down(20)
         r.left(20)
-        ink.write(system.time, align="right", font=(system.font , int(system.fontsize)))
-        r.left(300)
-        ink.write(text, align="center", font=(system.font , int(system.fontsize)))
-        r.left(300)
-        ink.write(system.name, align="left", font=(system.font , int(system.fontsize), "bold"))
-        r.left(20)
-        r.up(20)
         ink.color("white")
-        ink.end_fill()
+        ink.write(system.time, align="right", font=(system.font , int(system.fontsize)))
         ink.color("black")
+        r.left(300)
+        ink.color("white")
+        ink.write(text, align="center", font=(system.font , int(system.fontsize)))
+        ink.color("black")
+        r.left(300)
+        ink.color("white")
+        ink.write(system.name, align="left", font=(system.font , int(system.fontsize), "bold"))
+        ink.color("black")
+        r.left(20)
+        ink.end_fill()
+        r.up(20)
         ink.up()
         r.down(20)
         ink.down()
@@ -243,13 +252,13 @@ r.enter(20)
 
 gui.button("Примечание: для ввода значений используйте открывшуюся консоль.")
 
-system.title("Сделайте выбор!")
+r.tocli()
 system.font = input("1. введите шрифт системы, который хотите использовать (рекомендуем: Manrope): ")
 system.fontsize = int(input("2. введите размер шрифта системы (рекомендуем: 8): "))
 system.speed = int(input("3. введите скорость отрисовки интерфейса системы (самое быстрое значение: 0): "))
 
 system.clear()
-system.title("Вернитесь в " + system.name)
+r.togui()
 print("Теперь вы можете вернуться в интерфейс " + system.name)
 
 while True: 
@@ -258,7 +267,7 @@ while True:
     r.stdpos()
     
     gui.topbar("введите название файла в консоль, чтобы его открыть")
-    r.indent(20)
+    r.indent(30)
     
     icon.file("справка")
     r.enter(20)
@@ -269,14 +278,16 @@ while True:
     icon.trash("корзина")
     r.enter(20)
     
-    system.title("Сделайте выбор!")
+    r.tocli()
     console = input("введите название файла: ")
     
     system.clear()
+    r.togui()
+    
     gui.topbar(console)
     
     if console == "справка":
-        system.title("Вернитесь в " + system.name)
+        r.togui()
         gui.window(console)
         gui.menu("ClassiX info")
         r.indent(20)
@@ -296,7 +307,7 @@ while True:
         gui.bold("t.me/skibidiwc")
         
     elif console == "корзина":
-        system.title("Вернитесь в " + system.name)
+        r.togui()
         gui.window(console)
         gui.menu("Количество объектов в корзине: 0")
         r.indent(20)
@@ -307,7 +318,7 @@ while True:
         sys.exit()
         
     else:
-        system.title("Вернитесь в " + system.name)
+        r.togui()
         gui.window(console)
         r.indent(20)
         
