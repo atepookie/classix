@@ -18,6 +18,7 @@ class system:
     font = "Manrope"
     fontsize = 8
     speed = 0 # ОСТАВЬТЕ 0 ДЛЯ МАКСИМАЛЬНОЙ СКОРОСТИ
+    background = "default"
     
     def title(name):
         if os.name == "nt":
@@ -59,11 +60,11 @@ class r:
         ink.setpos(320, 240)
         ink.setpos(-320, 240)
         
-    def left(number):        
-        ink.setpos(ink.xcor() - number, ink.ycor())
+    def left(number):
+        ink.setpos(ink.xcor() - number , ink.ycor())
         
     def right(number):
-        ink.setpos(ink.xcor() + number, ink.ycor())
+        ink.setpos(ink.xcor() + number , ink.ycor())
         
     def up(number):
         ink.setpos(ink.xcor(), ink.ycor() + number)
@@ -82,59 +83,110 @@ class r:
         ink.setpos(ink.xcor(), ink.ycor() - number)
         ink.down()
         
+    def topleft():
+        ink.setpos(-320, 240)
+        
+    def topright():
+        ink.setpos(320, 240)
+        
+    def bottomleft():
+        ink.setpos(-320, -240)
+        
+    def bottomright():
+        ink.setpos(320, -240)
+        
+        
 class icon:
     def file(text):
         ink.down()
-        r.right(24)
-        for i in range(8):
+        r.right(31)
+        r.down(31)
+        r.left(31)
+        r.up(31)
+        
+        ink.up()
+        r.right(7)
+        r.down(3)
+        
+        ink.down()
+        r.right(12)
+        
+        for i in range(5):
             r.down(1)
             r.right(1)
-        r.down(24)
-        r.left(32)
-        r.up(32)
+            
+        r.down(20)
+        r.left(17)
+        r.up(25)
+        r.right(11)
+        
+        r.down(6)
+        r.right(6)
+        
         ink.up()
-        r.right(24)
-        ink.down()
-        r.down(8)
-        r.right(8)
+        r.left(24)
+        r.down(22)
+        
         ink.up()
-        r.down(24)
-        r.left(16)
-        ink.up()
-        r.down(10)
+        r.down(4)
         r.down(system.fontsize * 2)
-        ink.write(str(text), align="center", font=(system.font , system.fontsize, "bold"))
-        r.left(16)
+        ink.down()
+        ink.write(str(text), align="left", font=(system.font , system.fontsize, "bold"))
+        ink.up()
         
     def trash(text):
-        ink.up()
-        r.down(7)
         ink.down()
-        r.right(11)
-        r.up(2)
-        r.right(9)
-        r.down(2)
-        r.right(12)
-        ink.up()
-        r.down(2)
-        r.left(3)
-        ink.down()
-        for i in range(4):
-            r.down(6)
-            r.left(1)
-        r.left(20)
-        for i in range(4):
-            r.up(6)
-            r.left(1)
-        ink.up()
-        r.left(1)
-        r.down(24)
-        r.right(16)
+        r.right(31)
+        r.down(31)
+        r.left(31)
+        r.up(31)
         
-        r.down(10)
+        ink.up()
+        r.right(5)
+        r.down(5)
+        
+        ink.down()
+        r.right(8)
+        r.up(2)
+        r.right(5)
+        r.down(2)
+        r.right(8)
+        r.down(1)
+        
+        ink.up()       
+        r.down(2)
+        r.left(2)
+        
+        ink.down()
+        r.down(20)
+        r.left(17)
+        r.up(21)
+        
+        ink.up()
+        r.left(7)
+        r.down(25)
+        
+        ink.up()
+        r.down(4)
         r.down(system.fontsize * 2)
-        ink.write(str(text), align="center", font=(system.font , system.fontsize, "bold"))
-        r.left(16)
+        ink.down()
+        ink.write(str(text), align="left", font=(system.font , system.fontsize, "bold"))
+        ink.up()
+        
+    def base(text):
+        ink.down()
+        r.right(31)
+        r.down(31)
+        r.left(31)
+        r.up(31)
+        
+        ink.up()
+        r.down(31)
+        r.down(4)
+        r.down(system.fontsize * 2)
+        ink.down()
+        ink.write(str(text), align="left", font=(system.font , system.fontsize, "bold"))
+        ink.up()
         
 class gui:
     def topbar(text):
@@ -269,10 +321,13 @@ while True:
     gui.topbar("введите название файла в консоль, чтобы его открыть")
     r.indent(30)
     
+    icon.file("выключить")
+    r.enter(20)
+    
     icon.file("справка")
     r.enter(20)
     
-    icon.file("выключить")
+    icon.file("что нового?")
     r.enter(20)
     
     icon.trash("корзина")
@@ -284,6 +339,7 @@ while True:
     system.clear()
     r.togui()
     
+    ink.clear()
     gui.topbar(console)
     
     if console == "справка":
@@ -316,6 +372,15 @@ while True:
         
     elif console == "выключить":
         sys.exit()
+        
+    elif console == "что нового?":
+        r.setstd()
+        r.indent(20)
+        
+        gui.title("Что нового?")
+        r.enter(10)
+        
+        gui.text("Добро пожаловать! В этом приложении вы сможете узнать о новых функциях")
         
     else:
         r.togui()
