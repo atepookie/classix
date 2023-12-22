@@ -1,5 +1,7 @@
 import os
 from turtle import *
+
+setup (width=820, height=620)
 ht()
 
 class User:
@@ -187,7 +189,7 @@ while True:
                 write("Error!", align="left", font=("Verdana", User.fontsize, "bold"))
 
                 Pig.indent(0, 39)
-                write(console + " isn't a command or application", align="left", font=("Verdana", User.fontsize, "normal"))
+                write(str(console) + " isn't a command or application", align="left", font=("Verdana", User.fontsize, "normal"))
                 
                 textinput("", "Press OK or CANCEL to continue")
 
@@ -222,7 +224,7 @@ while True:
                 write("Error!", align="left", font=("Verdana", User.fontsize, "bold"))
 
                 Pig.indent(0, 39)
-                write(console + " isn't a command or application", align="left", font=("Verdana", User.fontsize, "normal"))
+                write(str(console) + " isn't a command or application", align="left", font=("Verdana", User.fontsize, "normal"))
                 
                 textinput("", "Press OK or CANCEL to continue")
 
@@ -233,6 +235,6 @@ while True:
         write("Error!", align="left", font=("Verdana", User.fontsize, "bold"))
 
         Pig.indent(0, 39)
-        write(console + " isn't a command or application", align="left", font=("Verdana", User.fontsize, "normal"))
+        write(str(console) + " isn't a command or application", align="left", font=("Verdana", User.fontsize, "normal"))
                 
         textinput("", "Press OK or CANCEL to continue")
