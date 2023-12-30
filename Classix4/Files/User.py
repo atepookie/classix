@@ -1,8 +1,0 @@
-resx = "800"
-resy = "600"
-name = ""
-color = ""
-bg = ""
-bgtext = ""
-speed = ""
-fontsize = ""

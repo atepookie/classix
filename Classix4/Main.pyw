@@ -2,29 +2,97 @@ from turtle import *
 from subprocess import getoutput
 import os
 import sys
+import importlib
+
 from url_downloader import save_file
 
-from Files import User
-from Files import Mov
-from Files import Pig
+class Mov:
+    def up(number):
+        sety(ycor() + int(number))
+
+    def down(number):
+        sety(ycor() - int(number))
+
+    def left(number):
+        setx(xcor() - int(number))
+
+    def right(number):
+        setx(xcor() + int(number))
+
+class Pig:
+    def exitonclick():
+        up()
+        goto(400, -300)
+        write("Click to exit", align="right", font=("Verdana", User.fontsize, "bold"))
+        exitonclick()
+
+    def indent(x, y):
+        up()
+        Mov.down(int(y))
+        Mov.right(int(x))
+        down()
+
+    def icon(text):
+        down()
+        Mov.right(19)
+        Mov.down(19)
+        begin_fill()
+        write("  " + text, align="left", font=("Verdana", User.fontsize, "normal"))
+        Mov.left(19)
+        Mov.up(19)
+        end_fill()
+        Mov.down(19)
+
+    def window(x, y, title):        
+        up()
+        goto(- x / 2 - 1, y / 2 + 1)
+        down()
+        begin_fill()
+        goto(x / 2 + 1, y / 2 + 1)
+        goto(x / 2 + 1, -y / 2 - 1)
+        goto(- x / 2 - 1, -y / 2 - 1)
+        goto(- x / 2 - 1, y / 2 + 1)
+        color(User.bg)
+        end_fill()
+        color(User.color)
+        begin_fill()
+        Mov.right(x + 2)
+        Mov.down(21)
+        Mov.left(x / 2 + 1)
+        color(User.bg)
+        write(title, align="center", font=("Verdana", User.fontsize, "bold"))
+        color(User.color)
+        Mov.left(x / 2 + 1)
+        Mov.up(21)
+        end_fill()
+        Mov.down(21)
+        up()
 
 ht()
 
-User.resx = int(textinput("Classix Setup", "Enter screen width:"))
-User.resy = int(textinput("Classix Setup", "Enter screen height:"))
-User.name = textinput("Classix Setup", "Your name:")
-User.color = textinput("Classix Setup", "Interface color:")
-User.bg = textinput("Classix Setup", "Background color:")
-User.bgtext = ""
-User.speed = int(textinput("Classix Setup", "Interface rendering speed: (0 - fastest)"))
-User.fontsize = int(textinput("Classix Setup", "System font size: (standard = 10)"))
+Username = textinput("Auth method", "Enter your name to login or 'Cancel' to create an account")
+
+if str(Username) == "None":
+    if os.system == "nt":
+        with open(os.path.dirname(os.path.abspath(__file__)) + "\\Files\\" + textinput("Create an account", "Enter your name:") + ".py", "w") as file:
+            file.write("resx = " + textinput("Create an account", "Set screen width:") + "\nresy = " + textinput("Create an account", "Set screen height:") +"\ncolor = \"" + textinput("Create an account", "Set system color:") + "\"\nbg = \"" + textinput("Create an account", "Set background color:") + "\"\nbgtext = \"" + textinput("Create an account", "Set background text:") + "\"\nfontsize = " + textinput("Create an account", "Set font size:\n\nstandard - 10"))
+    
+    else:
+        with open(os.path.dirname(os.path.abspath(__file__)) + "/Files/" + textinput("Create an account", "Enter your name:") + ".py", "w") as file:
+            file.write("resx = " + textinput("Create an account", "Set screen width:") + "\nresy = " + textinput("Create an account", "Set screen height:") +"\ncolor = \"" + textinput("Create an account", "Set system color:") + "\"\nbg = \"" + textinput("Create an account", "Set background color:") + "\"\nbgtext = \"" + textinput("Create an account", "Set background text:") + "\"\nfontsize = " + textinput("Create an account", "Set font size:\n\nstandard - 10"))
+    
+    textinput("Create an account", "You've successfully created an account!")
+    sys.exit()
+
+else:
+    User = importlib.import_module("Files." + Username)
 
 while True:
     setup(width = User.resx + 20, height = User.resy + 20)
-    title(User.name + "'s session")
+    title(Username + "'s session")
     color(User.color)
     bgcolor(User.bg)
-    speed(User.speed)
+    speed(0)
 
     clear()
 
@@ -62,6 +130,9 @@ while True:
 
     Pig.indent(0, 19)
     Pig.icon("urlget")
+
+    Pig.indent(0, 19)
+    Pig.icon("relogin")
 
     up()
     temp_position143 = position()
@@ -199,7 +270,7 @@ while True:
             Pig.indent(0, 39)
             write("This program allows you to run third-party .PY apps!", align="left", font=("Verdana", User.fontsize, "normal"))
 
-            Pig.indent(0, 39)
+            Pig.indent(0, 19)
             write("Put the required file to the 'Files\\' folder", align="left", font=("Verdana", User.fontsize, "normal"))
 
             Pig.indent(0,19)
@@ -255,6 +326,12 @@ while True:
             save_file(url=str(textinput("URL File Downloader", "Enter file URL to download it:")), file_path=os.path.dirname(os.path.abspath(__file__)) + "/Files/", file_name=str(textinput("URL File Downloader", "Enter file name:")))
 
         textinput("Success!", "File download complete!")
+
+    elif console == "relogin":
+        del sys.modules["Files." + Username]
+        Username = textinput("Relogin", "Enter your new account name:")
+        User = importlib.import_module("Files." + Username)
+
 
     else:
         Pig.window(400, 120, "error")
