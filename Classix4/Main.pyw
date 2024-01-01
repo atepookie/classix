@@ -70,22 +70,21 @@ class Pig:
 
 ht()
 
-Username = textinput("Auth method", "Enter your name to login or 'Cancel' to create an account")
+Username = textinput("Auth method", "Enter your name to login or leave the field blank to create an account")
 
-if str(Username) == "None":
-    if os.system == "nt":
-        with open(os.path.dirname(os.path.abspath(__file__)) + "\\Files\\" + textinput("Create an account", "Enter your name:") + ".py", "w") as file:
+if Username == "" or str(Username) == "None":
+    if os.name == "posix":
+        with open(os.path.dirname(os.path.abspath(__file__)) + "" + textinput("Create an account", "Enter your name:") + ".py", "w") as file:
             file.write("resx = " + textinput("Create an account", "Set screen width:") + "\nresy = " + textinput("Create an account", "Set screen height:") +"\ncolor = \"" + textinput("Create an account", "Set system color:") + "\"\nbg = \"" + textinput("Create an account", "Set background color:") + "\"\nbgtext = \"" + textinput("Create an account", "Set background text:") + "\"\nfontsize = " + textinput("Create an account", "Set font size:\n\nstandard - 10"))
+        textinput("Create an account", "You've successfully created an account!")
     
     else:
-        with open(os.path.dirname(os.path.abspath(__file__)) + "/Files/" + textinput("Create an account", "Enter your name:") + ".py", "w") as file:
-            file.write("resx = " + textinput("Create an account", "Set screen width:") + "\nresy = " + textinput("Create an account", "Set screen height:") +"\ncolor = \"" + textinput("Create an account", "Set system color:") + "\"\nbg = \"" + textinput("Create an account", "Set background color:") + "\"\nbgtext = \"" + textinput("Create an account", "Set background text:") + "\"\nfontsize = " + textinput("Create an account", "Set font size:\n\nstandard - 10"))
-    
-    textinput("Create an account", "You've successfully created an account!")
+        textinput("Error", "Your device doesn't support this feature")
+        
     sys.exit()
 
 else:
-    User = importlib.import_module("Files." + Username)
+    User = importlib.import_module(Username)
 
 while True:
     setup(width = User.resx + 20, height = User.resy + 20)
@@ -271,7 +270,7 @@ while True:
             write("This program allows you to run third-party .PY apps!", align="left", font=("Verdana", User.fontsize, "normal"))
 
             Pig.indent(0, 19)
-            write("Put the required file to the 'Files\\' folder", align="left", font=("Verdana", User.fontsize, "normal"))
+            write("Put the required file to the Classix folder", align="left", font=("Verdana", User.fontsize, "normal"))
 
             Pig.indent(0,19)
             Pig.icon("exit")
@@ -283,12 +282,14 @@ while True:
 
             else:
                 clear()
-                __import__("Files." + console)
-                del sys.modules["Files." + console]
+                __import__(console)
+                del sys.modules[console]
 
     elif console == "console":
         clear()
         Pig.window(User.resx, User.resy, "Native console environment")
+
+
 
         outlog = ""
 
@@ -307,30 +308,28 @@ while True:
                 outlog += "\n\n" + getoutput(console)
 
     elif console == "files":
-        Pig.window(500, 320, "files in the 'Files\\' folder")
+        Pig.window(500, 320, "Files in the Classix folder")
         goto(-500 / 2 + 19, -320 / 2 + 19)
 
-        if os.system == "nt":
-            write(os.path.dirname(os.path.abspath(__file__)) + "\\Files\\\n\n" + getoutput("dir '" + os.path.dirname(os.path.abspath(__file__)) + "\\Files\\' /B"), align="left", font=("Verdana", User.fontsize, "normal"))
-        
+        if os.name == "posix":
+            write(os.path.dirname(os.path.abspath(__file__)) + "\n\n" + getoutput("ls '" + os.path.dirname(os.path.abspath(__file__)) + "'"), align="left", font=("Verdana", User.fontsize, "normal"))
+            textinput("", "Press OK or CANCEL to exit")
+
         else:
-            write(os.path.dirname(os.path.abspath(__file__)) + "/Files/\n\n" + getoutput("ls '" + os.path.dirname(os.path.abspath(__file__)) + "/Files/'"), align="left", font=("Verdana", User.fontsize, "normal"))
-        
-        textinput("", "Press OK or CANCEL to exit")
+            textinput("Error", "Your device doesn't support this feature")
 
     elif console == "urlget":
-        if os.system == "nt":
-            save_file(url=str(textinput("URL File Downloader", "Enter file URL to download it:")), file_path=os.path.dirname(os.path.abspath(__file__)) + "\\Files\\", file_name=str(textinput("URL File Downloader", "Enter file name:")))
-        
-        else:
-            save_file(url=str(textinput("URL File Downloader", "Enter file URL to download it:")), file_path=os.path.dirname(os.path.abspath(__file__)) + "/Files/", file_name=str(textinput("URL File Downloader", "Enter file name:")))
+        if os.name == "posix":
+            save_file(url=str(textinput("URL File Downloader", "Enter file URL to download it:")), file_path=os.path.dirname(os.path.abspath(__file__)) + "", file_name=str(textinput("URL File Downloader", "Enter file name:")))
+            textinput("Success!", "File download complete!")
 
-        textinput("Success!", "File download complete!")
+        else:
+            textinput("Error", "Your device doesn't support this feature")
 
     elif console == "relogin":
-        del sys.modules["Files." + Username]
+        del sys.modules[Username]
         Username = textinput("Relogin", "Enter your new account name:")
-        User = importlib.import_module("Files." + Username)
+        User = importlib.import_module(Username)
 
 
     else:
