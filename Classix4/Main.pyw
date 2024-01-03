@@ -73,13 +73,14 @@ ht()
 Username = textinput("Auth method", "Enter your name to login or leave the field blank to create an account")
 
 if Username == "" or str(Username) == "None":
-    if os.name == "posix":
+    if os.name == "nt":
+        textinput("Error", "Your device doesn't support this feature")
+
+    else:        
         with open(os.path.dirname(os.path.abspath(__file__)) + "" + textinput("Create an account", "Enter your name:") + ".py", "w") as file:
             file.write("resx = " + textinput("Create an account", "Set screen width:") + "\nresy = " + textinput("Create an account", "Set screen height:") +"\ncolor = \"" + textinput("Create an account", "Set system color:") + "\"\nbg = \"" + textinput("Create an account", "Set background color:") + "\"\nbgtext = \"" + textinput("Create an account", "Set background text:") + "\"\nfontsize = " + textinput("Create an account", "Set font size:\n\nstandard - 10"))
         textinput("Create an account", "You've successfully created an account!")
     
-    else:
-        textinput("Error", "Your device doesn't support this feature")
         
     sys.exit()
 
@@ -311,20 +312,21 @@ while True:
         Pig.window(500, 320, "Files in the Classix folder")
         goto(-500 / 2 + 19, -320 / 2 + 19)
 
-        if os.name == "posix":
+        if os.name == "nt":
+            textinput("Error", "Your device doesn't support this feature")
+
+        else:
             write(os.path.dirname(os.path.abspath(__file__)) + "\n\n" + getoutput("ls '" + os.path.dirname(os.path.abspath(__file__)) + "'"), align="left", font=("Verdana", User.fontsize, "normal"))
             textinput("", "Press OK or CANCEL to exit")
-
-        else:
-            textinput("Error", "Your device doesn't support this feature")
+            
 
     elif console == "urlget":
-        if os.name == "posix":
-            save_file(url=str(textinput("URL File Downloader", "Enter file URL to download it:")), file_path=os.path.dirname(os.path.abspath(__file__)) + "", file_name=str(textinput("URL File Downloader", "Enter file name:")))
-            textinput("Success!", "File download complete!")
+        if os.name == "nt":
+            textinput("Error", "Your device doesn't support this feature")
 
         else:
-            textinput("Error", "Your device doesn't support this feature")
+            save_file(url=str(textinput("URL File Downloader", "Enter file URL to download it:")), file_path=os.path.dirname(os.path.abspath(__file__)) + "", file_name=str(textinput("URL File Downloader", "Enter file name:")))
+            textinput("Success!", "File download complete!")
 
     elif console == "relogin":
         del sys.modules[Username]
