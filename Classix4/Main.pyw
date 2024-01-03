@@ -95,7 +95,7 @@ while True:
 
     clear()
 
-    Pig.window(User.resx, User.resy, "Classix")
+    Pig.window(User.resx, User.resy, "Development is temporarily stopped!") # Classix
 
     up()
     goto(0, 0)
@@ -137,7 +137,7 @@ while True:
     temp_position143 = position()
     goto(User.resx / 2 - 9, -User.resy / 2 + 9)
     down()
-    write("Enter a command into the opened console", align="right", font=("Verdana", User.fontsize, "bold"))
+    write("Enter a command into the opened console\n\nDevelopment is temporarily stopped!", align="right", font=("Verdana", User.fontsize, "bold"))
     up()
     goto(temp_position143)
 
