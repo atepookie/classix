@@ -29,6 +29,78 @@ class Mov:
         turtle.goto(turtle.xcor() - Penspeed, turtle.ycor() - Penspeed)
 
 class Color:
+    def red1():
+        global Usercolor
+        if Usercolor == "#FF7D7D":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#FF7D7D"
+            turtle.color(Usercolor)
+
+    def orange1():
+        global Usercolor
+        if Usercolor == "#FFA96A":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#FFA96A"
+            turtle.color(Usercolor)
+
+    def yellow1():
+        global Usercolor
+        if Usercolor == "#FFDD66":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#FFDD66"
+            turtle.color(Usercolor)
+
+    def green1():
+        global Usercolor
+        if Usercolor == "#B1FF74":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#B1FF74"
+            turtle.color(Usercolor)
+
+    def skyblue1():
+        global Usercolor
+        if Usercolor == "#84F0FF":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#84F0FF"
+            turtle.color(Usercolor)
+
+    def blue1():
+        global Usercolor
+        if Usercolor == "#80C2FF":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#80C2FF"
+            turtle.color(Usercolor)
+
+    def purple1():
+        global Usercolor
+        if Usercolor == "#DF84FF":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#DF84FF"
+            turtle.color(Usercolor)
+
+    def pink1():
+        global Usercolor
+        if Usercolor == "#FF6FD7":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#FF6FD7"
+            turtle.color(Usercolor)
+
+    def gray1():
+        global Usercolor
+        if Usercolor == "#FFFFFF":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#FFFFFF"
+            turtle.color(Usercolor)
+
     def red():
         global Usercolor
         if Usercolor == "#FF3030":
@@ -85,28 +157,92 @@ class Color:
             Usercolor = "#BD00FF"
             turtle.color(Usercolor)
 
-    def white():
+    def pink():
         global Usercolor
-        if Usercolor == "white":
+        if Usercolor == "#FF00B8":
             turtle.bgcolor(Usercolor)
         else:
-            Usercolor = "white"
-            turtle.color(Usercolor)
-
-    def black():
-        global Usercolor
-        if Usercolor == "black":
-            turtle.bgcolor(Usercolor)
-        else:
-            Usercolor = "black"
+            Usercolor = "#FF00B8"
             turtle.color(Usercolor)
 
     def gray():
         global Usercolor
-        if Usercolor == "#C0C0C0":
+        if Usercolor == "#808080":
             turtle.bgcolor(Usercolor)
         else:
-            Usercolor = "#C0C0C0"
+            Usercolor = "#808080"
+            turtle.color(Usercolor)
+
+    def red0():
+        global Usercolor
+        if Usercolor == "#8B0000":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#8B0000"
+            turtle.color(Usercolor)
+
+    def orange0():
+        global Usercolor
+        if Usercolor == "#8B3A00":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#8B3A00"
+            turtle.color(Usercolor)
+
+    def yellow0():
+        global Usercolor
+        if Usercolor == "#8C6D00":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#8C6D00"
+            turtle.color(Usercolor)
+
+    def green0():
+        global Usercolor
+        if Usercolor == "#3D8B00":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#3D8B00"
+            turtle.color(Usercolor)
+
+    def skyblue0():
+        global Usercolor
+        if Usercolor == "#007A8B":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#007A8B"
+            turtle.color(Usercolor)
+
+    def blue0():
+        global Usercolor
+        if Usercolor == "#00488A":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#00488A"
+            turtle.color(Usercolor)
+
+    def purple0():
+        global Usercolor
+        if Usercolor == "#67008B":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#67008B"
+            turtle.color(Usercolor)
+
+    def pink0():
+        global Usercolor
+        if Usercolor == "#8B0064":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#8B0064"
+            turtle.color(Usercolor)
+
+    def gray0():
+        global Usercolor
+        if Usercolor == "#000000":
+            turtle.bgcolor(Usercolor)
+        else:
+            Usercolor = "#000000"
             turtle.color(Usercolor)
 
 def Penspeed10():
@@ -147,7 +283,7 @@ class Layer:
             turtle.color(TemporaryColor)
         else:
             Layer.Up()
-            turtle.color("#D9D9D9")
+            turtle.color("#808080")
 
 class Look:
     background = "#202020"
@@ -231,18 +367,43 @@ tkinter.Button(toolsframe, text=" Убавить толщину ", bg=Look.butto
 tkinter.Button(toolsframe, text=" Добавить текст ", bg=Look.button, fg="white", font=Userfont, command=lambda: turtle.write(turtle.textinput("Текст", "Введите текст для вставки на холст:"), align="left", font=(turtle.textinput("Текст", "Введите название шрифта:"), int(turtle.textinput("Текст", "Введите размер шрифта:")), "normal"))).pack(side=tkinter.LEFT, padx=5, pady=5)
 tkinter.Button(toolsframe, text=" Прибавить толщину ", bg=Look.button, fg="white", font=Userfont, command=lambda: turtle.pensize(turtle.pensize() + 1)).pack(side=tkinter.LEFT, padx=5, pady=5)
 
-extraframe2 = tkinter.Frame(root, bg=Look.background)
-extraframe2.pack()
+colorframe1 = tkinter.Frame(root, bg=Look.background)
+colorframe1.pack()
 
-tkinter.Button(extraframe2, text="      ", font=Userfont, command=Color.red, bg="#FF3030").pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(extraframe2, text="      ", font=Userfont, command=Color.orange, bg="#FF6B00").pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(extraframe2, text="      ", font=Userfont, command=Color.yellow, bg="#FFC700").pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(extraframe2, text="      ", font=Userfont, command=Color.green, bg="#60DB00").pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(extraframe2, text="      ", font=Userfont, command=Color.skyblue, bg="#00E0FF").pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(extraframe2, text="      ", font=Userfont, command=Color.blue, bg="#0085FF").pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(extraframe2, text="      ", font=Userfont, command=Color.purple, bg="#BD00FF").pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(extraframe2, text="      ", font=Userfont, command=Color.white, bg="white").pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(extraframe2, text="      ", font=Userfont, command=Color.black, bg="black").pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(extraframe2, text="      ", font=Userfont, command=Color.gray, bg="#C0C0C0").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe1, text="       ", font=Userfont, command=Color.red1, bg="#FF7D7D").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe1, text="       ", font=Userfont, command=Color.orange1, bg="#FFA96A").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe1, text="       ", font=Userfont, command=Color.yellow1, bg="#FFDD66").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe1, text="       ", font=Userfont, command=Color.green1, bg="#B1FF74").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe1, text="       ", font=Userfont, command=Color.skyblue1, bg="#84F0FF").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe1, text="       ", font=Userfont, command=Color.blue1, bg="#80C2FF").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe1, text="       ", font=Userfont, command=Color.purple1, bg="#DF84FF").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe1, text="       ", font=Userfont, command=Color.pink1, bg="#FF6FD7").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe1, text="       ", font=Userfont, command=Color.gray1, bg="white").pack(side=tkinter.LEFT, padx=5, pady=5)
+
+colorframe = tkinter.Frame(root, bg=Look.background)
+colorframe.pack()
+
+tkinter.Button(colorframe, text="       ", font=Userfont, command=Color.red, bg="#FF3030").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe, text="       ", font=Userfont, command=Color.orange, bg="#FF6B00").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe, text="       ", font=Userfont, command=Color.yellow, bg="#FFC700").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe, text="       ", font=Userfont, command=Color.green, bg="#60DB00").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe, text="       ", font=Userfont, command=Color.skyblue, bg="#00E0FF").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe, text="       ", font=Userfont, command=Color.blue, bg="#0085FF").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe, text="       ", font=Userfont, command=Color.purple, bg="#BD00FF").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe, text="       ", font=Userfont, command=Color.pink, bg="#FF00B8").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe, text="       ", font=Userfont, command=Color.gray, bg="#808080").pack(side=tkinter.LEFT, padx=5, pady=5)
+
+colorframe0 = tkinter.Frame(root, bg=Look.background)
+colorframe0.pack()
+
+tkinter.Button(colorframe0, text="       ", font=Userfont, command=Color.red0, bg="#8B0000").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe0, text="       ", font=Userfont, command=Color.orange0, bg="#8B3A00").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe0, text="       ", font=Userfont, command=Color.yellow0, bg="#8C6D00").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe0, text="       ", font=Userfont, command=Color.green0, bg="#3D8B00").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe0, text="       ", font=Userfont, command=Color.skyblue0, bg="#007A8B").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe0, text="       ", font=Userfont, command=Color.blue0, bg="#00488A").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe0, text="       ", font=Userfont, command=Color.purple0, bg="#67008B").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe0, text="       ", font=Userfont, command=Color.pink0, bg="#8B0064").pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(colorframe0, text="       ", font=Userfont, command=Color.gray0, bg="black").pack(side=tkinter.LEFT, padx=5, pady=5)
 
 root.mainloop()
