@@ -167,7 +167,7 @@ turtle.left(135)
 
 # TKINTER
 
-Userfont = ("Arial", 9, "normal")
+Userfont = ("Bahnschrift", 10, "normal")
 root = tkinter.Tk()
 root.title("XPaint - Панель управления")
 root.configure(bg=Look.background)
@@ -178,23 +178,23 @@ topframe.pack()
 
 tkinter.Label(topframe, text="Управление пером", bg=Look.background, fg="white", font=Userfont).pack(padx=5, pady=5)
 
-tkinter.Button(topframe, text="  ⭦  ", bg=Look.button, fg="white", font=Userfont, command=Mov.upleft).pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(topframe, text="  ⭡  ", bg=Look.button, fg="white", font=Userfont, command=Mov.up).pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(topframe, text="  ⭧  ", bg=Look.button, fg="white", font=Userfont, command=Mov.upright).pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(topframe, text="  ↖  ", bg=Look.button, fg="white", font=Userfont, command=Mov.upleft).pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(topframe, text="  ↑  ", bg=Look.button, fg="white", font=Userfont, command=Mov.up).pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(topframe, text="  ↗  ", bg=Look.button, fg="white", font=Userfont, command=Mov.upright).pack(side=tkinter.LEFT, padx=5, pady=5)
 
 centerframe = tkinter.Frame(root, bg=Look.background)
 centerframe.pack()
 
-tkinter.Button(centerframe, text="  ⭠  ", bg=Look.button, fg="white", font=Userfont, command=Mov.left).pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(centerframe, text="  ←  ", bg=Look.button, fg="white", font=Userfont, command=Mov.left).pack(side=tkinter.LEFT, padx=5, pady=5)
 tkinter.Button(centerframe, text=" ⬕ ", bg=Look.button, fg="white", font=Userfont, command=Layer.CnahgeLayers).pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(centerframe, text="  ⭢  ", bg=Look.button, fg="white", font=Userfont, command=Mov.right).pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(centerframe, text="  →  ", bg=Look.button, fg="white", font=Userfont, command=Mov.right).pack(side=tkinter.LEFT, padx=5, pady=5)
 
 bottomframe = tkinter.Frame(root, bg=Look.background)
 bottomframe.pack()
 
-tkinter.Button(bottomframe, text="  ⭩  ", bg=Look.button, fg="white", font=Userfont, command=Mov.downleft).pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(bottomframe, text="  ⭣  ", bg=Look.button, fg="white", font=Userfont, command=Mov.down).pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(bottomframe, text="  ⭨  ", bg=Look.button, fg="white", font=Userfont, command=Mov.downright).pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(bottomframe, text="  ↙  ", bg=Look.button, fg="white", font=Userfont, command=Mov.downleft).pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(bottomframe, text="  ↓  ", bg=Look.button, fg="white", font=Userfont, command=Mov.down).pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(bottomframe, text="  ↘  ", bg=Look.button, fg="white", font=Userfont, command=Mov.downright).pack(side=tkinter.LEFT, padx=5, pady=5)
 
 specframe = tkinter.Frame(root, bg=Look.background)
 specframe.pack()
