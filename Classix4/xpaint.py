@@ -42,8 +42,10 @@ def Penspeed60():
 def ChangeLayers():
     if turtle.isdown() == True:
         turtle.up()
+        IsPenUpState.config(text=f" ○ ")
     else:
         turtle.down()
+        IsPenUpState.config(text=f" ● ")
 
 class Thickness:
     def minus():
@@ -101,7 +103,9 @@ def appcontent():
     centerarrows.pack()
 
     tkinter.Button(centerarrows, text="  ←  ", bg=Look.button, fg="white", font=Userfont, command=lambda: turtle.setx(turtle.xcor() - Penspeed)).pack(side=tkinter.LEFT, padx=5, pady=5)
-    tkinter.Button(centerarrows, text=" ⬕ ", bg=Look.button, fg="white", font=Userfont, command=ChangeLayers).pack(side=tkinter.LEFT, padx=5, pady=5)
+    global IsPenUpState
+    IsPenUpState = tkinter.Button(centerarrows, text=" ● ", bg=Look.button, fg="white", font=Userfont, command=ChangeLayers)
+    IsPenUpState.pack(side=tkinter.LEFT, padx=5, pady=5)
     tkinter.Button(centerarrows, text="  →  ", bg=Look.button, fg="white", font=Userfont, command=lambda: turtle.setx(turtle.xcor() + Penspeed)).pack(side=tkinter.LEFT, padx=5, pady=5)
 
     bottomarrows = tkinter.Frame(root, bg=Look.background)
