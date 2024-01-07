@@ -146,12 +146,12 @@ def appcontent():
     speedframe = tkinter.Frame(root, bg=Look.background)
     speedframe.pack()
 
-    tkinter.Button(speedframe, text="  10  ", font=Userfont, bg=Look.button, fg=Look.text, bd=0, command=Penspeed10, cursor="circle", activebackground="#80D0FF").pack(side=tkinter.LEFT, padx=5, pady=5)
-    tkinter.Button(speedframe, text="  20  ", font=Userfont, bg=Look.button, fg=Look.text, bd=0, command=Penspeed20, cursor="circle", activebackground="#80FFFF").pack(side=tkinter.LEFT, padx=5, pady=5)
-    tkinter.Button(speedframe, text="  30  ", font=Userfont, bg=Look.button, fg=Look.text, bd=0, command=Penspeed30, cursor="circle", activebackground="#80FF80").pack(side=tkinter.LEFT, padx=5, pady=5)
-    tkinter.Button(speedframe, text="  40  ", font=Userfont, bg=Look.button, fg=Look.text, bd=0, command=Penspeed40, cursor="circle", activebackground="#FFFF80").pack(side=tkinter.LEFT, padx=5, pady=5)
-    tkinter.Button(speedframe, text="  50  ", font=Userfont, bg=Look.button, fg=Look.text, bd=0, command=Penspeed50, cursor="circle", activebackground="#FFD080").pack(side=tkinter.LEFT, padx=5, pady=5)
-    tkinter.Button(speedframe, text="  60  ", font=Userfont, bg=Look.button, fg=Look.text, bd=0, command=Penspeed60, cursor="circle", activebackground="#FF8080").pack(side=tkinter.LEFT, padx=5, pady=5)
+    tkinter.Button(speedframe, text="  10  ", font=Userfont, bg=Look.button, fg=Look.text, bd=0, command=Penspeed10, cursor="circle", activebackground="#80D0FF", activeforeground=Look.text).pack(side=tkinter.LEFT, padx=5, pady=5)
+    tkinter.Button(speedframe, text="  20  ", font=Userfont, bg=Look.button, fg=Look.text, bd=0, command=Penspeed20, cursor="circle", activebackground="#80FFFF", activeforeground=Look.text).pack(side=tkinter.LEFT, padx=5, pady=5)
+    tkinter.Button(speedframe, text="  30  ", font=Userfont, bg=Look.button, fg=Look.text, bd=0, command=Penspeed30, cursor="circle", activebackground="#80FF80", activeforeground=Look.text).pack(side=tkinter.LEFT, padx=5, pady=5)
+    tkinter.Button(speedframe, text="  40  ", font=Userfont, bg=Look.button, fg=Look.text, bd=0, command=Penspeed40, cursor="circle", activebackground="#FFFF80", activeforeground=Look.text).pack(side=tkinter.LEFT, padx=5, pady=5)
+    tkinter.Button(speedframe, text="  50  ", font=Userfont, bg=Look.button, fg=Look.text, bd=0, command=Penspeed50, cursor="circle", activebackground="#FFD080", activeforeground=Look.text).pack(side=tkinter.LEFT, padx=5, pady=5)
+    tkinter.Button(speedframe, text="  60  ", font=Userfont, bg=Look.button, fg=Look.text, bd=0, command=Penspeed60, cursor="circle", activebackground="#FF8080", activeforeground=Look.text).pack(side=tkinter.LEFT, padx=5, pady=5)
 
     tkinter.Label(root, text="", bg=Look.background, fg=Look.text, font=Userfont).pack(padx=5, pady=5)
 
@@ -163,8 +163,8 @@ def appcontent():
 
     tkinter.Label(fillframe, text="Заливка", bg=Look.background, fg=Look.text, font=Userfont).pack(padx=5, pady=5)
 
-    tkinter.Button(fillframe, text=" Начать ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=turtle.begin_fill, cursor="spraycan", activebackground="#80D0FF").pack(side=tkinter.LEFT, padx=5, pady=5)
-    tkinter.Button(fillframe, text=" Закончить ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=turtle.end_fill, cursor="spraycan", activebackground="#80FF80").pack(side=tkinter.LEFT, padx=5, pady=5)
+    tkinter.Button(fillframe, text=" Начать ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=turtle.begin_fill, cursor="spraycan", activebackground="#80D0FF", activeforeground=Look.text).pack(side=tkinter.LEFT, padx=5, pady=5)
+    tkinter.Button(fillframe, text=" Закончить ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=turtle.end_fill, cursor="spraycan", activebackground="#80FF80", activeforeground=Look.text).pack(side=tkinter.LEFT, padx=5, pady=5)
 
     tkinter.Label(superframe, text="     ", bg=Look.background, fg=Look.text, font=Userfont).pack(side=tkinter.LEFT, padx=5, pady=5)
 
@@ -175,8 +175,8 @@ def appcontent():
     thickness = tkinter.Label(pensizeframe, text=f"Толщина: {turtle.pensize()}", bg=Look.background, fg=Look.text, font=Userfont)
     thickness.pack(padx=5, pady=5)
 
-    tkinter.Button(pensizeframe, text="   -   ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=Thickness.minus, cursor="sb_left_arrow", activebackground="#80D0FF").pack(side=tkinter.LEFT, padx=5, pady=5)
-    tkinter.Button(pensizeframe, text="   +   ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=Thickness.plus, cursor="sb_right_arrow", activebackground="#FF8080").pack(side=tkinter.LEFT, padx=5, pady=5)
+    tkinter.Button(pensizeframe, text="   -   ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=Thickness.minus, cursor="sb_left_arrow", activebackground="#80D0FF", activeforeground=Look.text).pack(side=tkinter.LEFT, padx=5, pady=5)
+    tkinter.Button(pensizeframe, text="   +   ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=Thickness.plus, cursor="sb_right_arrow", activebackground="#FF8080", activeforeground=Look.text).pack(side=tkinter.LEFT, padx=5, pady=5)
 
     tkinter.Label(root, text="", bg=Look.background, fg=Look.text, font=Userfont).pack(padx=5, pady=5)
 
@@ -188,8 +188,8 @@ def appcontent():
 
     tkinter.Label(toolsframe, text="Инструменты", bg=Look.background, fg=Look.text, font=Userfont).pack(padx=5, pady=5)
 
-    tkinter.Button(toolsframe, text=" Добавить текст ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=lambda: turtle.write(turtle.textinput("Текст", "Введите текст для вставки на холст:"), align="left", font=(turtle.textinput("Текст", "Введите название шрифта:"), int(turtle.textinput("Текст", "Введите размер шрифта:")), "normal")), cursor="top_tee", activebackground="#D0FF80").pack(padx=5, pady=5)
-    tkinter.Button(toolsframe, text=" Очистить холст ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=turtle.clear, cursor="pirate", activebackground="#FF8080").pack(padx=5, pady=5)
+    tkinter.Button(toolsframe, text=" Добавить текст ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=lambda: turtle.write(turtle.textinput("Текст", "Введите текст для вставки на холст:"), align="left", font=(turtle.textinput("Текст", "Введите название шрифта:"), int(turtle.textinput("Текст", "Введите размер шрифта:")), "normal")), cursor="top_tee", activebackground="#D0FF80", activeforeground=Look.text).pack(padx=5, pady=5)
+    tkinter.Button(toolsframe, text=" Очистить холст ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=turtle.clear, cursor="pirate", activebackground="#FF8080", activeforeground=Look.text).pack(padx=5, pady=5)
 
     tkinter.Label(superframe2, text="     ", bg=Look.background, fg=Look.text, font=Userfont).pack(side=tkinter.LEFT, padx=5, pady=5)
 
@@ -199,10 +199,10 @@ def appcontent():
     tkinter.Label(colorframe, text="Выбрать цвет", bg=Look.background, fg=Look.text, font=Userfont).pack(padx=5, pady=5)
 
     global PenColor
-    PenColor = tkinter.Button(colorframe, text=" Для пера ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=Look.ChColor, cursor="spraycan")
+    PenColor = tkinter.Button(colorframe, text=" Для пера ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=Look.ChColor, cursor="spraycan", activeforeground=Look.text)
     PenColor.pack(padx=5, pady=5)
     global BgColor
-    BgColor = tkinter.Button(colorframe, text=" Для фона ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=Look.ChBg, cursor="spraycan")
+    BgColor = tkinter.Button(colorframe, text=" Для фона ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=Look.ChBg, cursor="spraycan", activeforeground=Look.text)
     BgColor.pack(padx=5, pady=5)
 
     root.mainloop()
@@ -227,7 +227,7 @@ text_widget.insert("1.0", licensetext)
 text_widget.config(state="disabled")
 text_widget.pack(padx=5, pady=5, expand=True, fill="both")
 
-tkinter.Button(license, text=" Отказаться ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=exit, cursor="X_cursor", activebackground="#FF8080").pack(side=tkinter.LEFT, padx=5, pady=5)
-tkinter.Button(license, text=" Принять условия лицензии ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=appcontent, cursor="circle", activebackground="#D0FF80").pack(side=tkinter.RIGHT, padx=5, pady=5)
+tkinter.Button(license, text=" Отказаться ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=exit, cursor="X_cursor", activebackground="#FF8080", activeforeground=Look.text).pack(side=tkinter.LEFT, padx=5, pady=5)
+tkinter.Button(license, text=" Принять условия лицензии ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=appcontent, cursor="circle", activebackground="#D0FF80", activeforeground=Look.text).pack(side=tkinter.RIGHT, padx=5, pady=5)
 
 license.mainloop()
