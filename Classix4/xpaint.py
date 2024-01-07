@@ -188,7 +188,7 @@ def appcontent():
 
     tkinter.Label(toolsframe, text="Инструменты", bg=Look.background, fg=Look.text, font=Userfont).pack(padx=5, pady=5)
 
-    tkinter.Button(toolsframe, text=" Добавить текст ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=lambda: turtle.write(turtle.textinput("Текст", "Введите текст для вставки на холст:"), align="left", font=(turtle.textinput("Текст", "Введите название шрифта:"), int(turtle.textinput("Текст", "Введите размер шрифта:")), "normal")), cursor="top_tee", activebackground="#D0FF80", activeforeground=Look.background).pack(padx=5, pady=5)
+    tkinter.Button(toolsframe, text=" Добавить текст ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=lambda: turtle.write(turtle.textinput("Текст", "Введите текст для вставки на холст:"), align="center", font=(turtle.textinput("Текст", "Введите название шрифта:"), int(turtle.textinput("Текст", "Введите размер шрифта:")), "normal")), cursor="top_tee", activebackground="#D0FF80", activeforeground=Look.background).pack(padx=5, pady=5)
     tkinter.Button(toolsframe, text=" Очистить холст ", bg=Look.button, fg=Look.text, bd=0, font=Userfont, command=turtle.clear, cursor="pirate", activebackground="#FF8080", activeforeground=Look.background).pack(padx=5, pady=5)
 
     tkinter.Label(superframe2, text="     ", bg=Look.background, fg=Look.text, font=Userfont).pack(side=tkinter.LEFT, padx=5, pady=5)
