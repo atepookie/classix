@@ -107,7 +107,7 @@ def appcontent():
 
     root = tkinter.Tk()
     root.title("XPaint 10")
-    root.configure(bg=Look.background, padx=15, pady=15, cursor="left_ptr")
+    root.configure(bg=Look.background, padx=10, pady=10, cursor="left_ptr")
     root.resizable(False, False)
 
     tkinter.Label(root, text="Движение", bg=Look.background, fg=Look.text, font=Userfont).pack(padx=5, pady=5)
@@ -221,7 +221,7 @@ else:
 
 license = tkinter.Tk()
 license.title("XPaint - Лицензионное соглашение")
-license.configure(bg=Look.background, padx=15, pady=15, cursor="left_ptr")
+license.configure(bg=Look.background, padx=10, pady=10, cursor="left_ptr")
 license.geometry("640x640")
 license.resizable(False, False)
 
