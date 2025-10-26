@@ -210,15 +210,33 @@ GUI.blank()
 GUI.menu("Добро пожаловать!", System.accentColor[4], System.accentColor[1])
 
 while True: # АНИМАЦИЯ КАЛА
-    for i in range(256):
-        goto(i, i)
+    for i in range(0, 256, 1):
         clear()
-        pencolor("white")
+        
+        up()
+        goto(i, i)
+        down()
+        
+        pencolor("green")
+        fillcolor("green")
+        begin_fill()
         Render.moveRight(i)
         Render.moveDown(i)
         Render.moveLeft(i)
         Render.moveUp(i)
-        sleep(0.002)
+        end_fill()
+        
+        up()
+        goto(-i, -i)
+        down()
+        
+        pencolor("red")
+        Render.moveRight(-i)
+        Render.moveDown(-i)
+        Render.moveLeft(-i)
+        Render.moveUp(-i)
+        
+        sleep(0.016)
         update()
     sleep(1)
 
