@@ -1,5 +1,6 @@
 from turtle import *
 from datetime import datetime
+from time import sleep
 
 ht() # СКРЫТЬ ЧЕРЕПАШКУ
 tracer(False) # FALSE = МГНОВЕННАЯ ОТРИСОВКА
@@ -174,16 +175,18 @@ class GUI: # ЭЛЕМЕНТЫ ГРАФИЧЕСКОГО ИНТЕРФЕЙСА
 
     def test():
         bgcolor("white")
-        for i in range(100):
+        for i in range(320):
             goto(i, 0)
+            clear()
             down()
             color("black")
             Render.moveRight(30)
             Render.moveDown(30)
             Render.moveLeft(30)
             Render.moveUp(30)
-            clear()
             up()
+            sleep(0.01)
+            update()
 
 class Windows: # РАБОТА С ОТКРЫТЫМИ ОКНАМИ
     list = {}
@@ -206,7 +209,20 @@ Render.moveTopLeft(100)
 GUI.blank()
 GUI.menu("Добро пожаловать!", System.accentColor[4], System.accentColor[1])
 
-GUI.test()
+while True: # АНИМАЦИЯ КАЛА
+    for i in range(256):
+        goto(i, i)
+        clear()
+        pencolor("white")
+        Render.moveRight(i)
+        Render.moveDown(i)
+        Render.moveLeft(i)
+        Render.moveUp(i)
+        sleep(0.002)
+        update()
+    sleep(1)
+
+
 
 update() # ОБНОВЛЕНИЕ КАДРА
 done() # ОСТАВЛЯЕТ ОКНО TURTLE ОТКРЫТЫМ
